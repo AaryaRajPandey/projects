@@ -5,7 +5,7 @@ import java.net.Socket;
 
 public class Main {
   public static void main(String[] args) {
-    final Logger log = LoggerFactory.getLogger(Main.class);
+    // final Logger log = LoggerFactory.getLogger(Main.class);
     ServerSocket serverSocket = null;
     Socket clientSocket = null;
     int port = 9092;
@@ -20,14 +20,14 @@ public class Main {
       out.write(new byte[] { 0, 1, 2, 3 });
       out.write(new byte[] { 0, 0, 0, 7 });
     } catch (IOException e) {
-      log.info("IOException: " + e.getMessage());
+      System.out.println("IOException: " + e.getMessage());
     } finally {
       try {
         if (clientSocket != null) {
           clientSocket.close();
         }
       } catch (IOException e) {
-        log.info("IOException: " + e.getMessage());
+        System.out.println("IOException: " + e.getMessage());
       }
     }
   }
